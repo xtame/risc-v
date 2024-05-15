@@ -4,5 +4,5 @@
 
 * **Installed VirtualBox**
 * **Downloaded and installed Machine Image for the Compiler - VDI**
-* **Design Counter and Matrix-Multiplication in C code on Godbolt** 
+* **Explore [Counter](https://godbolt.org/z/caKPbcGoo) and [Matrix-Multiplication](https://godbolt.org/z/19Gee3KMG) in C code on [Godbolt](https://godbolt.org/)** 
 
