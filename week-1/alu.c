@@ -6,21 +6,54 @@ int mul(int,int); // function prototype for multiplying two integers
 int sub(int,int); // function prototype for subtracting two integers
 int divn(int,int); // function prototype for dividing two integers
 
+
 int main(int argc, char **argv)
 {
-    int alu_opertion = 0;
-    while(1){
-        printf("Enter a number between 1 and 4 to select ALU operation\n");
-        printf("Here are your options:\n");
-        printf("Addition:\t 1\nMulition:\t 2\nSubtraction:\t 3\nDivision:\t 4\n");
-        scanf("%d",&alu_opertion);
-        if (alu_opertion >= 1 && alu_opertion <= 4) {
-            printf("The number you entered is %d\n", alu_opertion);
-            break; 
-        } else {
-            printf("Error: Please enter a valid number between 1 and 4.\n");
-        }
+    if (argc != 4) {
+        printf("Usage: %s <operation> <operand1> <operand2>\n", argv[0]);
+        return 1;
     }
+    
+    //input from command line
+    int operation =  atoi(argv[1]);
+    int operand1 = atoi(argv[2]);
+    int operand2 = atoi(argv[3]);
+
+    // variable to store the operation result
+    int result;
+
+    if(operation >= 1 && operation <= 4) {
+            switch (operation) {
+        case 1:
+            printf("You have chosen to perform addition:\t");
+            result = add(operand1, operand2);
+            printf("%d + %d = %d\n", operand1, operand2, result);
+            break;
+        case 2:
+            printf("You have chosen to perform subtraction:\t");
+            result = sub(operand1, operand2);
+            printf("%d - %d = %d\n", operand1, operand2, result);
+            break;
+        case 3:
+            printf("You have chosen to perform multiplication:\t");
+            result = mul(operand1, operand2);
+            printf("%d * %d = %d\n", operand1, operand2, result);
+            break;
+        case 4:
+            printf("You have chosen to perform division:\t");
+            result = divn(operand1, operand2);
+            printf("%d / %d = %d\n", operand1, operand2, result);
+            break;
+        default:
+            printf("Error: Invalid operation\n");
+            return 1;
+    }
+
+    } else {
+            printf("\nError: Please enter a valid number between 1 and 4.\n");
+            return 1;
+    }
+    
 }
 
 // function implementation for adding two integers
